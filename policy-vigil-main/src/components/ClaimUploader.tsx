@@ -17,6 +17,9 @@ interface UploadedFile {
   error?: string;
 }
 
+// ✅ Changed this: point to your live backend
+const API_BASE = "https://healthcare-insurance-claim.onrender.com";
+
 export const ClaimUploader = () => {
   const [files, setFiles] = useState<UploadedFile[]>([]);
   const [uploadProgress, setUploadProgress] = useState(0);
@@ -47,7 +50,8 @@ export const ClaimUploader = () => {
         const formData = new FormData();
         formData.append('file', file);
 
-        const response = await fetch('http://127.0.0.1:8000/api/claims/upload', {
+        // ✅ Changed fetch URL to use API_BASE
+        const response = await fetch(`${API_BASE}/api/claims/upload`, {
           method: 'POST',
           body: formData,
         });
