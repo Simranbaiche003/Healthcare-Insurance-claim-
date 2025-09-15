@@ -1,0 +1,8 @@
+﻿fastapi
+uvicorn
+pdfplumber
+pillow
+pytesseract
+pandas
+python-multipart
+openpyxl
